@@ -24,6 +24,60 @@ body {
 }
 
 /* ================================
+   IMAGEM DE FUNDO SEMITRANSPARENTE
+   Suba a imagem com o nome fundo.jpg
+   Para mudar a força da imagem, altere o opacity
+   (0.10 = bem suave | 0.30 = bem visível)
+================================ */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("fundo.jpg") center / cover no-repeat;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ================================
+   LOGO / FAIXA NO TOPO
+================================ */
+
+.topo-logo {
+    text-align: center;
+    padding: 25px 10px 10px;
+}
+
+.logo-topo {
+    width: 380px;          /* tamanho da logo no computador */
+    max-width: 90%;
+    height: auto;
+    animation: aparecerDeCima 1s ease;
+}
+
+/* Título em texto: só aparece se a logo não carregar */
+.titulo-reserva {
+    display: none;
+}
+
+/*
+   SE QUISER UMA FAIXA NA LARGURA TODA em vez de logo,
+   troque o bloco .logo-topo acima por este:
+
+   .logo-topo {
+       display: block;
+       width: 100%;
+       max-width: 100%;
+       max-height: 220px;
+       object-fit: cover;
+   }
+   .topo-logo {
+       padding: 0;
+   }
+*/
+
+/* ================================
    TÍTULOS
 ================================ */
 
@@ -297,6 +351,32 @@ strong:hover {
 }
 
 /* ================================
+   RODAPÉ - DIREITOS AUTORAIS
+================================ */
+
+.rodape-direitos {
+    width: 100%;
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape-direitos p {
+    font-size: 14px;
+    color: #a0aec0;
+    margin: 0;
+    text-align: center;
+}
+
+.rodape-direitos p:hover {
+    transform: none;
+    color: #25d366;
+}
+
+/* ================================
    BOTÃO VOLTAR AO TOPO
 ================================ */
 
@@ -382,6 +462,10 @@ strong:hover {
         font-size: 2em;
     }
 
+    .logo-topo {
+        width: 280px;
+    }
+
     .conteudo-centralizado {
         padding: 10px;
     }
@@ -411,44 +495,4 @@ strong:hover {
         bottom: 15px;
         right: 15px;
     }
-}
-/* ================================
-   RODAPÉ - DIREITOS AUTORAIS (CORRIGIDO)
-================================ */
-
-.rodape-direitos {
-    width: 100%;
-    margin-top: 50px;          /* Distância em relação ao mapa */
-    padding: 20px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
-    
-    /* CORREÇÃO DO ALINHAMENTO: */
-    display: flex;
-    justify-content: center;   /* Força o conteúdo a ficar bem no meio da tela */
-    align-items: center;
-}
-
-.rodape-direitos p {
-    font-size: 14px;           
-    color: #a0aec0;            
-    margin: 0;
-    text-align: center;        /* Garante a centralização se o texto quebrar linha no celular */
-}
-
-.rodape-direitos p:hover {
-    transform: none;           
-    color: #25d366;            
-}
-/* ================================
-   EMOJI DA POMBA (ABAIXO DO H1)
-================================ */
-
-.emoji-pomba {
-    text-align: center;
-    font-size: 2.2em;          /* Define um tamanho visível e elegante para o emoji */
-    margin-top: -15px;         /* Puxa o emoji um pouco para perto do título principal */
-    margin-bottom: 25px;       /* Cria um espaçamento confortável antes do botão do WhatsApp */
-    opacity: 0;                /* Começa invisível para rodar junto com a animação */
-    transform: translateY(15px);
-    animation: aparecerDeCima 1s ease forwards; /* Faz o emoji surgir deslizando suavemente */
 }
