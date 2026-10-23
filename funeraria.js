@@ -32,9 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==========================================
     // ANIMAÇÃO DOS ELEMENTOS GERAIS
     // ==========================================
-    // CORREÇÃO: Removemos a tag genérica 'p' e a classe '.secao-sobre' para não dar conflito com a lista interna de valores
     const elementos = document.querySelectorAll(
-        "h1, h2:not(.secao-sobre h2), iframe, .botao-whatsapp"
+        ".logo-topo, .telefone, .endereco, .conteudo-centralizado > iframe, .botao-whatsapp"
     );
 
     elementos.forEach(function (elemento, index) {
@@ -46,24 +45,26 @@ document.addEventListener("DOMContentLoaded", function () {
             elemento.style.opacity = "1";
             elemento.style.transform = "translateY(0)";
         }, 150 + index * 120);
+
+        // Depois da animação, devolve o controle ao CSS
+        // (assim os efeitos de hover continuam funcionando)
+        setTimeout(function () {
+            elemento.style.opacity = "";
+            elemento.style.transform = "";
+            elemento.style.transition = "";
+        }, 150 + index * 120 + 900);
     });
 
     // ==========================================
-    // ANIMAÇÃO DOS VALORES E SEUS TEXTOS
+    // ANIMAÇÃO DOS VALORES
     // ==========================================
-    // Agora o JavaScript ativa a animação de forma independente para a seção sobre
-    const secaoSobre = document.querySelector(".secao-sobre");
-    if (secaoSobre) {
-        // Faz o bloco de textos aparecer primeiro
-        secaoSobre.style.opacity = "1";
-        
-        const valores = document.querySelectorAll(".lista-valores li");
-        valores.forEach(function (valor, index) {
-            setTimeout(function () {
-                valor.classList.add("apareceu");
-            }, 600 + index * 250); // Faz cada tópico surgir um atrás do outro da esquerda para a direita
-        });
-    }
+    const valores = document.querySelectorAll(".lista-valores li");
+
+    valores.forEach(function (valor, index) {
+        setTimeout(function () {
+            valor.classList.add("apareceu");
+        }, 600 + index * 250);
+    });
 
     // ==========================================
     // EFEITO NO TELEFONE
@@ -85,7 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (endereco) {
         endereco.addEventListener("click", function () {
             window.open(
-                "https://www.google.com/maps",
+                "https://www.google.com/maps/search/?api=1&query=" +
+                encodeURIComponent("R. Mal. Costa e Silva, 410 - Jk, Contagem - MG, 32310-080"),
                 "_blank"
             );
         });
@@ -129,10 +131,3 @@ function voltarAoTopo() {
         behavior: "smooth"
     });
 }
-    // ==========================================
-    // ANIMAÇÃO DOS ELEMENTOS GERAIS
-    // ==========================================
-    // ADICIONADO: '.emoji-pomba' na lista de animação
-    const elementos = document.querySelectorAll(
-        "h1, .emoji-pomba, h2:not(.secao-sobre h2), iframe, .botao-whatsapp"
-    );
