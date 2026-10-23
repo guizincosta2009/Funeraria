@@ -1,0 +1,454 @@
+/* ================================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #0b132b, #111d3d, #0b132b);
+    background-size: 200% 200%;
+    animation: fundoAnimado 12s ease infinite;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ================================
+   TÍTULOS
+================================ */
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 30px 0;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+    animation: aparecerDeCima 1s ease;
+}
+
+h1:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+    text-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+h2:hover {
+    color: #25d366;
+    transform: scale(1.03);
+}
+
+/* ================================
+   CONTEÚDO PRINCIPAL
+================================ */
+
+.conteudo-centralizado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ================================
+   BOTÃO WHATSAPP
+================================ */
+
+.botao-whatsapp {
+    display: inline-block;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brilho passando pelo botão */
+.botao-whatsapp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.botao-whatsapp:hover::before {
+    left: 130%;
+}
+
+.botao-whatsapp:hover {
+    background-color: #20ba5a;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+.botao-whatsapp:active {
+    transform: scale(0.95);
+}
+
+/* ================================
+   VÍDEO
+================================ */
+
+.conteudo-centralizado iframe {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
+}
+
+.conteudo-centralizado iframe:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 35px rgba(37, 211, 102, 0.25);
+}
+
+/* ================================
+   TELEFONE
+================================ */
+
+.telefone {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.telefone:hover {
+    color: #25d366;
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+}
+
+/* ================================
+   ENDEREÇO
+================================ */
+
+.endereco {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.endereco:hover {
+    color: #25d366;
+    transform: translateY(-3px);
+}
+
+/* ================================
+   SEÇÃO SOBRE
+================================ */
+
+.secao-sobre {
+    max-width: 700px;
+    text-align: center;
+    line-height: 1.8;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+.secao-sobre:hover {
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-3px);
+}
+
+/* ================================
+   TEXTOS
+================================ */
+
+p {
+    max-width: 750px;
+    text-align: center;
+    margin: 20px auto;
+    line-height: 1.8;
+    transition: all 0.3s ease;
+}
+
+p:hover {
+    transform: translateY(-2px);
+}
+
+strong {
+    color: #25d366;
+    transition: 0.3s;
+}
+
+strong:hover {
+    text-shadow: 0 0 10px rgba(37, 211, 102, 0.7);
+}
+
+/* ================================
+   TÍTULO DOS VALORES
+================================ */
+
+.secao-sobre h2 {
+    color: #25d366;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(37, 211, 102, 0.25);
+}
+
+/* ================================
+   LISTA DE VALORES
+================================ */
+
+.lista-valores {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 30px auto;
+    max-width: 650px;
+}
+
+.lista-valores li {
+    margin-bottom: 15px;
+    position: relative;
+    padding: 15px 15px 15px 35px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #25d366;
+    transition: all 0.35s ease;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.lista-valores li.apareceu {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.lista-valores li::before {
+    content: "•";
+    color: #25d366;
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    left: 12px;
+    top: 10px;
+}
+
+.lista-valores li:hover {
+    background: rgba(37, 211, 102, 0.08);
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ================================
+   TEXTO FINAL
+================================ */
+
+.texto-final {
+    font-style: italic;
+    color: #e0e0e0;
+    max-width: 700px;
+    padding: 20px;
+    border-top: 1px solid rgba(37, 211, 102, 0.3);
+    transition: all 0.4s ease;
+}
+
+.texto-final:hover {
+    color: #ffffff;
+    border-top-color: #25d366;
+}
+
+/* ================================
+   MAPA
+================================ */
+
+.mapa-google {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+.mapa-google:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 35px rgba(37, 211, 102, 0.25);
+}
+
+/* ================================
+   BOTÃO VOLTAR AO TOPO
+================================ */
+
+#botaoTopo {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background-color: #25d366;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#botaoTopo.mostrar {
+    display: block;
+    animation: aparecer 0.4s ease;
+}
+
+#botaoTopo:hover {
+    background-color: #20ba5a;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+}
+
+/* ================================
+   ANIMAÇÕES
+================================ */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes aparecerDeCima {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fundoAnimado {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ================================
+   RESPONSIVIDADE PARA CELULAR
+================================ */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .conteudo-centralizado {
+        padding: 10px;
+    }
+
+    .botao-whatsapp {
+        font-size: 16px;
+        padding: 13px 22px;
+    }
+
+    .conteudo-centralizado iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+    .mapa-google {
+        width: 100%;
+        height: 300px;
+    }
+
+    p {
+        padding: 0 10px;
+    }
+
+    #botaoTopo {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+/* ================================
+   RODAPÉ - DIREITOS AUTORAIS (CORRIGIDO)
+================================ */
+
+.rodape-direitos {
+    width: 100%;
+    margin-top: 50px;          /* Distância em relação ao mapa */
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+    
+    /* CORREÇÃO DO ALINHAMENTO: */
+    display: flex;
+    justify-content: center;   /* Força o conteúdo a ficar bem no meio da tela */
+    align-items: center;
+}
+
+.rodape-direitos p {
+    font-size: 14px;           
+    color: #a0aec0;            
+    margin: 0;
+    text-align: center;        /* Garante a centralização se o texto quebrar linha no celular */
+}
+
+.rodape-direitos p:hover {
+    transform: none;           
+    color: #25d366;            
+}
+/* ================================
+   EMOJI DA POMBA (ABAIXO DO H1)
+================================ */
+
+.emoji-pomba {
+    text-align: center;
+    font-size: 2.2em;          /* Define um tamanho visível e elegante para o emoji */
+    margin-top: -15px;         /* Puxa o emoji um pouco para perto do título principal */
+    margin-bottom: 25px;       /* Cria um espaçamento confortável antes do botão do WhatsApp */
+    opacity: 0;                /* Começa invisível para rodar junto com a animação */
+    transform: translateY(15px);
+    animation: aparecerDeCima 1s ease forwards; /* Faz o emoji surgir deslizando suavemente */
+}
