@@ -13,19 +13,19 @@
 
 <body>
 
-       <!-- TÍTULO PRINCIPAL -->
-    <h1>Funerária Contagem</h1>
-
-    <!-- ADICIONE ESTE BLOCO ABAIXO (EMOJI DA POMBA) -->
-    <div class="emoji-pomba">🕊️</div>
-
-    <div class="conteudo-centralizado">
-
+    <!-- LOGO / FAIXA NO TOPO
+         Suba a imagem no GitHub com o nome logo.png
+         (se não existir, aparece o título em texto) -->
+    <header class="topo-logo">
+        <img src="logo.png" alt="Funerária Contagem" class="logo-topo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <h1 class="titulo-reserva">Funerária Contagem</h1>
+    </header>
 
     <div class="conteudo-centralizado">
 
         <!-- BOTÃO WHATSAPP -->
-        <a href="https://whatsapp.com"
+        <a href="https://wa.me/5531991152520"
            target="_blank"
            class="botao-whatsapp">
             WhatsApp 24 Horas
@@ -119,15 +119,12 @@
 
         </section>
 
-    </div>
+        <!-- RODAPÉ -->
         <footer class="rodape-direitos">
             <p>&copy; 2026 Funerária Contagem. Todos os direitos reservados.</p>
         </footer>
 
-        <!-- SEÇÃO SOBRE (Se o seu sobre estiver no final, o footer deve vir depois dele) -->
-        <!-- ... resto do seu código ... -->
-
-    </div> <!-- fechamento da div conteudo-centralizado -->
+    </div>
 
     <!-- BOTÃO VOLTAR AO TOPO -->
     <button id="botaoTopo" onclick="voltarAoTopo()">
